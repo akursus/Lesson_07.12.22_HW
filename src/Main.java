@@ -5,6 +5,7 @@ public class Main {
     public static void main(String[] args) {
         printLeapOrNotLeapYear (2000);
         printVersionOS(2021, 2);
+        printDeliveryTime (395);
     }
 
     public static boolean isLeapYear (int year) {
@@ -37,5 +38,13 @@ public class Main {
         else {
             System.out.println("Версия операционной системы не определена"+ getVersionOS(versionOS));
         }
+    }
+
+    public static void printDeliveryTime (int deliveryDistance) {
+        if (deliveryDistance > 0 && deliveryDistance < 300) {
+            System.out.println("Время доставки в сутках - " + ((deliveryDistance + 19)/40 + 1));
+            return;
+        }
+        System.out.println("Срок не определен. Доставка по почте");
     }
 }
