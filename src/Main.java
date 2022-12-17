@@ -1,8 +1,10 @@
+import java.time.LocalDate;
+
 public class Main {
+    private final static int currentYear = LocalDate.now().getYear();
     public static void main(String[] args) {
-        //Task 1
-        System.out.println("Задание 1");
         printLeapOrNotLeapYear (2000);
+        printVersionOS(2021, 2);
     }
 
     public static boolean isLeapYear (int year) {
@@ -15,5 +17,25 @@ public class Main {
             return;
         }
         System.out.println(year + " - год не високосный");
+    }
+
+    public static String getVersionOS(int versionOS) {
+        if (versionOS == 0) {
+            return "IOS";
+        } else if (versionOS == 1) {
+            return "Android";
+        }
+        return  "!";
+    }
+
+    public static void printVersionOS(int year, int versionOS){
+        if (year == currentYear) {
+            System.out.println("Установите полную версию для ОС " + getVersionOS(versionOS));
+        } else if (year < currentYear && versionOS <=1){
+            System.out.println("Установите lite-версию для ОС " + getVersionOS(versionOS));
+        }
+        else {
+            System.out.println("Версия операционной системы не определена"+ getVersionOS(versionOS));
+        }
     }
 }
